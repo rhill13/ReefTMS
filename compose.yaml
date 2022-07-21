@@ -3,6 +3,21 @@ services:
     build: ./reeftms-core
     ports:
       - "8080:8080"
+  dev-db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=dev
+    profiles:
+      - dev
+    volumes:
+      - reefTMS-dev-data:/var/lib/mysql/
+  adminer:
+    image: adminer
+    ports:
+      - 8081:8080
+    profiles:
+      - dev
 
 volumes:
-  reefTMS-data:
+  reefTMS-dev-data:
