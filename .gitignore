@@ -1,2 +1,5 @@
 # Environment
 .env
+
+#Store files
+.DS_Store
